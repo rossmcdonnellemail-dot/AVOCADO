@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(pip3 install:*)",
+      "Bash(source venv/bin/activate)",
+      "Bash(streamlit run:*)"
+    ]
+  }
+}
