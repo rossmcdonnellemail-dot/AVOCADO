@@ -15,14 +15,25 @@ api_key = os.getenv("OPENAI_API_KEY")
 
 st.set_page_config(page_title="Avocado", page_icon="🥑", layout="centered")
 
-# Custom CSS
+# Custom CSS - Streamlit Cloud compatible
 st.markdown("""
 <style>
-    .main {background: linear-gradient(to bottom right, #ecfdf5, #d1fae5, #ccfbf1);}
-    .stTextArea textarea {text-align: center; font-size: 18px;}
-    h1 {text-align: center; font-size: 4rem; margin: 0;}
-    .tagline {text-align: center; color: #4b5563; font-size: 1.1rem; margin-bottom: 2rem;}
-    .green-text {color: #059669; font-weight: 600;}
+    [data-testid="stAppViewContainer"] {
+        background: linear-gradient(to bottom right, #ecfdf5, #d1fae5, #ccfbf1);
+    }
+    [data-testid="stHeader"] {
+        background: transparent;
+    }
+    [data-testid="stToolbar"] {
+        right: 2rem;
+    }
+    .block-container {
+        padding-top: 2rem;
+    }
+    div[data-testid="stTextArea"] textarea {
+        text-align: center;
+        font-size: 18px;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -187,9 +198,14 @@ def extract_video(url):
 # --- UI LAYOUT ---
 
 # Logo
-st.markdown("<h1>🥑</h1>", unsafe_allow_html=True)
 st.markdown(
-    '<p class="tagline">Drop any video, <span class="green-text">A</span>vocado <span class="green-text">I</span>ntelligence makes your notes for you</p>',
+    '<h1 style="text-align: center; font-size: 4rem; margin: 0;">🥑</h1>',
+    unsafe_allow_html=True
+)
+st.markdown(
+    '<p style="text-align: center; color: #4b5563; font-size: 1.1rem; margin-bottom: 2rem;">'
+    'Drop any video, <span style="color: #059669; font-weight: 600;">A</span>vocado '
+    '<span style="color: #059669; font-weight: 600;">I</span>ntelligence makes your notes for you</p>',
     unsafe_allow_html=True
 )
 
